@@ -5,9 +5,7 @@ function findValueInNestedObject(object, key) {
   const arrFromObject = Object.values(object).filter(
     (el) => typeof el === "object"
   );
-  const value = arrFromObject.map((el) => {
-    return findValueInNestedObject(el, key);
-  });
+  const value = arrFromObject.map((el) => findValueInNestedObject(el, key));
   return value[0] || null;
 }
 
